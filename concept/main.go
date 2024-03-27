@@ -20,12 +20,16 @@ func main() {
 
 	//demostrate the working of map with where te map is used by different go routine
 	// to change it value .
-	wap2()
+	// wap2()
+
+	// wap3
+	// impliment linked list
+	// linkedlist()
 
 }
 
 // ******************   start  wap2   *************************
-
+// use of mutex .
 // a struct is required because we want to
 // combine  both the map and mutex as one entity
 
@@ -103,6 +107,7 @@ func wap2() {
 
 // **************************   end wap2  *****************************
 
+// *************************   start wap1 ******************************
 func demon1(times int, c chan int) {
 	// start a go routine that will do some work and send the response over the channel
 	go func() {
@@ -122,4 +127,23 @@ func demon1(times int, c chan int) {
 		fmt.Println(data)
 
 	}
+}
+
+// *********************** end wap 2 ****************************************
+
+// *********************** start wap 3 ****************************
+
+func linkedlist() {
+	linkedList := NewLinkedList()
+	for _, value := range []int{1, 2, 3, 4, 5, 6, 7} {
+		linkedList.Insert(value)
+	}
+	linkedList.PrintList()
+	linkedList.ReverseList()
+	linkedList.PrintList()
+	linkedList.RemoveFirst()
+	linkedList.RemoveLast()
+	linkedList.PrintList()
+	fmt.Println(linkedList.GetMiddle())
+
 }
