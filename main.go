@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// for loop
 
@@ -25,7 +27,7 @@ func main() {
 	// 	i++
 	// }
 
-	// if and else statement and swutch stament
+	// if and else statement and switch stament
 
 	// var day = 2
 
@@ -90,4 +92,34 @@ func main() {
 	// }
 	// var m map[string]Vertex
 
+	// fmt.Println(fib(10))
+	// fmt.Println(fibCalled)
+
+	// variadic function
+
+	// myFunc := variab(10)
+	// fmt.Println(myFunc())
+	// fmt.Println(myFunc())
+	// fmt.Println(myFunc())
+	// fmt.Println(myFunc())
+	// fmt.Println(myFunc())
+
+	queue := make(chan string, 2)
+	queue <- "one"
+	queue <- "two"
+	close(queue)
+
+	for elem := range queue {
+		fmt.Println(elem)
+	}
 }
+
+// func variab(initial int) func() int {
+// 	num := initial
+
+// 	return func() int {
+// 		onum := num
+// 		num++
+// 		return onum
+// 	}
+// }
