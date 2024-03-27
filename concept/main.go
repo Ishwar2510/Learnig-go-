@@ -28,7 +28,11 @@ func main() {
 
 	// wap 4
 	// impliment Queue
-	queue()
+	// queue()
+
+	// wap5
+	// impliment set
+	set()
 
 }
 
@@ -165,3 +169,28 @@ func queue() {
 	myqueue.Remove()
 	myqueue.PrintQueue()
 }
+
+// ************************** end wap 4 *****************************
+
+// ************************** start wap 5 *****************************
+
+func set() {
+	set := newSet()
+
+	for _, value := range []int{1, 2, 3, 4, 4, 5, 6, 1, 2, 3, 4, 5} {
+		set.Add(value)
+	}
+	set.Printset()
+	set.Remove(3)
+	set.Remove(40)
+	set.Printset()
+
+	set2 := newSet()
+	for _, value := range []string{"hi", "how", "how", "are", "you", "all", "you"} {
+		set2.Add(value)
+	}
+	set2.Printset()
+
+}
+
+// ************************** end wap 5 *****************************
