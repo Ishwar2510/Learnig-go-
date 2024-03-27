@@ -26,6 +26,10 @@ func main() {
 	// impliment linked list
 	// linkedlist()
 
+	// wap 4
+	// impliment Queue
+	queue()
+
 }
 
 // ******************   start  wap2   *************************
@@ -146,4 +150,18 @@ func linkedlist() {
 	linkedList.PrintList()
 	fmt.Println(linkedList.GetMiddle())
 
+}
+
+// ************************** end wap 3 *****************************
+
+// *************************** start wap4 ****************************
+
+func queue() {
+	myqueue := NewQueue()
+	for _, value := range []int{2, 3, 4, 5, 1, 13, 4, 45} {
+		myqueue.Add(value)
+	}
+	myqueue.PrintQueue()
+	myqueue.Remove()
+	myqueue.PrintQueue()
 }

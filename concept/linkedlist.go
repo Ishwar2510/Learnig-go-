@@ -20,12 +20,12 @@ type Linkedlist struct {
 	tail *Node
 }
 
-func (list *Linkedlist) Insert(data interface{}) {
+func (list *Linkedlist) Insert(data interface{}) error {
 	newNode := &Node{data: data}
 	if list.isEmpty() != nil {
 		list.head = newNode
 		list.tail = list.head
-		return
+		return nil
 	}
 
 	current := list.head
@@ -34,6 +34,7 @@ func (list *Linkedlist) Insert(data interface{}) {
 	}
 	current.next = newNode
 	list.tail = current.next
+	return nil
 }
 func (list *Linkedlist) isEmpty() error {
 	if list.head == nil {
@@ -62,25 +63,26 @@ func (list *Linkedlist) PeekFirst() (interface{}, error) {
 	return current.data, nil
 
 }
-func (list *Linkedlist) RemoveFirst() error {
+func (list *Linkedlist) RemoveFirst() (interface{}, error) {
 	if err := list.isEmpty(); err != nil {
-		return err
+		return nil, err
 	}
 	current := list.head
 	if current.next == nil {
 		list.head = nil
-		return nil
+		return nil, nil
 	}
+	toRemove := list.head
 	nextNode := current.next
 	list.head = nextNode
 	list.head.prev = nil
-	return nil
+	return toRemove.data, nil
 
 }
 
-func (list *Linkedlist) RemoveLast() error {
+func (list *Linkedlist) RemoveLast() (interface{}, error) {
 	if err := list.isEmpty(); err != nil {
-		return err
+		return nil, err
 	}
 	current := list.head
 	for current.next != nil {
@@ -88,7 +90,7 @@ func (list *Linkedlist) RemoveLast() error {
 	}
 	prev := current.prev
 	prev.next = nil
-	return nil
+	return current.data, nil
 
 	// or
 
