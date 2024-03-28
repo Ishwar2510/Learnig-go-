@@ -174,6 +174,35 @@ func (list *Linkedlist) Size() int {
 	return size
 }
 
+type Iterator struct {
+	current *Node
+	prev    *Node
+}
+
+func NewIterator(current *Node) *Iterator {
+	return &Iterator{current: current}
+}
+
+//	need an iteartor function which we help us to iterate over the linked list
+//
+// we need to store the current itearting node
+// so we are making a strut out of it
+func (i *Iterator) hasNext() (interface{}, bool) {
+	if i.current == nil {
+		return nil, false
+	}
+	tempCurrent := i.current
+	i.prev = tempCurrent
+	i.current = i.current.next
+	return tempCurrent, true
+}
+func (i *Iterator) SetData(data interface{}) {
+	i.prev.data = data
+}
+func (list *Linkedlist) Iterator() *Iterator {
+	return NewIterator(list.head)
+}
+
 func NewLinkedList() *Linkedlist {
 	return &Linkedlist{}
 }

@@ -24,7 +24,7 @@ func main() {
 
 	// wap3
 	// impliment linked list
-	// linkedlist()
+	linkedlist()
 
 	// wap 4
 	// impliment Queue
@@ -150,13 +150,18 @@ func linkedlist() {
 	for _, value := range []int{1, 2, 3, 4, 5, 6, 7} {
 		linkedList.Insert(value)
 	}
+	// linkedList.PrintList()
+	// linkedList.ReverseList()
+	// linkedList.PrintList()
+	// linkedList.RemoveFirst()
+	// linkedList.RemoveLast()
+	// linkedList.PrintList()
+	// fmt.Println(linkedList.GetMiddle())
+	myIterator := linkedList.Iterator()
+	for value, hasNext := myIterator.hasNext(); hasNext != false; value, hasNext = myIterator.hasNext() {
+		myIterator.SetData(value.(*Node).data.(int) * 2)
+	}
 	linkedList.PrintList()
-	linkedList.ReverseList()
-	linkedList.PrintList()
-	linkedList.RemoveFirst()
-	linkedList.RemoveLast()
-	linkedList.PrintList()
-	fmt.Println(linkedList.GetMiddle())
 
 }
 
