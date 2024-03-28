@@ -43,16 +43,15 @@ func (list *Linkedlist) isEmpty() error {
 	return nil
 }
 
-func (list *Linkedlist) PeekLast() (interface{}, error) {
+func (list *Linkedlist) PeekFirst() (interface{}, error) {
 	if list.head == nil {
 		return nil, errors.New("Empty list")
 	}
 	return list.head.data, nil
-	// or use tail
-	// return list.tail.data, nil
+
 }
 
-func (list *Linkedlist) PeekFirst() (interface{}, error) {
+func (list *Linkedlist) PeekLast() (interface{}, error) {
 	if list.head == nil {
 		return nil, errors.New("Empty list ")
 	}
@@ -70,7 +69,7 @@ func (list *Linkedlist) RemoveFirst() (interface{}, error) {
 	current := list.head
 	if current.next == nil {
 		list.head = nil
-		return nil, nil
+		return current.data, nil
 	}
 	toRemove := list.head
 	nextNode := current.next
@@ -164,6 +163,15 @@ func (list *Linkedlist) ReverseList() error {
 	current.next = prev
 	list.head = current
 	return nil
+}
+func (list *Linkedlist) Size() int {
+	size := 0
+	current := list.head
+	for current != nil {
+		size++
+		current = current.next
+	}
+	return size
 }
 
 func NewLinkedList() *Linkedlist {

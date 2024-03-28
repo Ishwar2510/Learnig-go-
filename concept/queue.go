@@ -13,8 +13,28 @@ func (q *Queue) Add(data interface{}) error {
 	return err
 }
 func (q *Queue) Remove() (interface{}, error) {
-	data, err := q.queue.RemoveFirst()
-	return data, err
+	data, _ := q.queue.RemoveFirst()
+	return data, nil
+}
+func (q *Queue) Poll() (interface{}, error) {
+	data, _ := q.queue.RemoveFirst()
+	return data, nil
+}
+func (q *Queue) IsEmpty() bool {
+	if err := q.queue.isEmpty(); err != nil {
+		return true
+	}
+	return false
+}
+func (q *Queue) Size() int {
+	return q.queue.Size()
+}
+func (q *Queue) Peek() (interface{}, error) {
+	if data, err := q.queue.PeekFirst(); err != nil {
+		return nil, err
+	} else {
+		return data, nil
+	}
 }
 func (q *Queue) PrintQueue() {
 	q.queue.PrintList()

@@ -32,7 +32,11 @@ func main() {
 
 	// wap5
 	// impliment set
-	set()
+	// set()
+
+	// wap6
+	// impliment tree data structure
+	// tree()
 
 }
 
@@ -194,3 +198,21 @@ func set() {
 }
 
 // ************************** end wap 5 *****************************
+
+// ************************** end wap 6*****************************
+
+func tree() {
+	tree := NewTree()
+	for _, value := range []int{20, 10, 2, 3, 110, 56, 34, 1, 5, 6, 200, 300, 500, 600, 700, 800, 900, 120} {
+		tree.Insert(value)
+	}
+	tree.InOrder()
+	fmt.Println()
+	tree.Preorder()
+	fmt.Println()
+	tree.Postorder()
+	fmt.Println()
+	tree.Leftview()
+}
+
+// ************************** start wap 6 *****************************
